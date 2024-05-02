@@ -53,13 +53,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (_keys == 5)
             {
-                _timer.isRunning = false;
-                _timer.timerText.text = "Congratulations";
-                _keyText.text = "Win";
                 StartCoroutine(_openDoor());
-                _win._wining(_restartTxt);
             }
                 
+        }
+        if (collision.transform.CompareTag("LastObj"))
+        {
+            _TheEnd();
+            Destroy(collision.gameObject);
         }
     }
 
@@ -111,5 +112,13 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void _TheEnd()
+    {
+        _timer.isRunning = false;
+        _timer.timerText.text = "Congratulations";
+        _keyText.text = "Win";
+        _win._wining(_restartTxt);
     }
 }

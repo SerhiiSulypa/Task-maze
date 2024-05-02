@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - key
+  - LastObj
   layers:
   - Default
   - TransparentFX
